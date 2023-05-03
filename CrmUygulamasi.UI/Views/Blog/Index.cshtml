@@ -1,0 +1,22 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="continer">
+    <div class="row">
+        <div class="col-xl-4 col-md-6" style="position:relative; left:274px; top:10px;">
+            <a class="btn btn-success" onclick="openCreateModal('Blog')">Post Oluştur</a>
+        </div>
+    </div>
+</div>
+
+<div>
+    @await Component.InvokeAsync("PostList")
+</div>
+
+
+
+@*POST CREAT İŞLEMİ İÇİN MODAL*@
+<vc:modal modal-id="modalBlogCreate" header-text="Post Oluştur" form-id="formBlogCreate" button-class="primary" button-text="Kaydet" detail-div-id="divCreateModalDetail"></vc:modal>

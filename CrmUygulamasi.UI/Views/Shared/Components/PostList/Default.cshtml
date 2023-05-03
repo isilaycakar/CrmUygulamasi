@@ -1,0 +1,44 @@
+﻿@model List<Blog>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-xl-4 col-md-6 portfolio-item" style="margin-top:30px;">
+                <div class="card" style="width: 21rem;">
+                    <p class="card-text" style="margin-left:5px; position: relative; top:10px;">@item.PostTitle</p>
+                    <a href="#" style="margin-left:85%; position: relative; bottom:29px;"><i class="fa fa-trash"></i></a>
+                    <a href="#" style="margin-left:92%; position: relative; bottom:53px;"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <p class="card-text" style="margin-left:5px; position: relative; top:-45px;">
+                        <time>@(((DateTime)item.PostCreateDate).ToString("dd-MM-yyyy"))</time>
+                    </p>
+                    <img style="position: relative; top:-45px;" src="@item.PostImage" class="card-img-top" alt="..." height="250px">
+                    <div class="card-body">
+
+                        <p class="card-text" style="text-align:center; position: relative; top:-30px;">
+                            @{
+                                if (item.PostContent.Length < 130)
+                                {
+                                    @item.PostContent
+
+                                }
+                                else
+                                {
+                                    @item.PostContent.Substring(0,130)
+
+                                }
+                            }...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+
+

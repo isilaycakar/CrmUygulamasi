@@ -1,0 +1,63 @@
+﻿@using System.Security.Claims
+
+<!-- Sidebar Menu -->
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                    Cari Hesaplar
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a asp-controller="Customer" asp-action="Index" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Müşteriler</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Supplier" asp-action="Index" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Tedarikçiler</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a asp-controller="Product" asp-action="Index" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                    Ürünler
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a asp-controller="Blog" asp-action="Index" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>Posts</p>
+            </a>
+        </li>
+        @if(User.FindFirst(ClaimTypes.Role).Value == "Admin")
+        {
+        <li class="nav-item">
+            <a asp-controller="Employee" asp-action="Index" class="nav-link">
+                <i class="nav-icon far fa-user"></i>
+                <p>Employees</p>
+            </a>
+        </li>
+        }
+        <li class="nav-item">
+            <a asp-controller="Auth" asp-action="Logout" class="nav-link">
+                <i class="nav-icon far fa-lock"></i>
+                <p>Güvenli Çıkış Yap</p>
+            </a>
+        </li>
+    </ul>
+</nav>
+<!-- /.sidebar-menu -->
